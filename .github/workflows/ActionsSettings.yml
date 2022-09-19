@@ -16,7 +16,7 @@ jobs:
     - name: Print Hello Message
       run: echo "Hello World Testing Job"
       
-    - name: Execure few commands
+    - name: Execute few commands
       run: |
         echo "Hello Message 1"
         echo "Hello Message 2"
