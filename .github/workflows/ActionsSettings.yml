@@ -13,6 +13,14 @@ jobs:
     - name: Print Hello Message
       run: echo "Hello World Testing Job"
       
+    - name: List current folder
+      run: ls -la
+      
+    - name: Git clone my repo
+      uses: actions/checkout@v1
+      
+    - name: List current folder
+      run: ls -la
     
   my-deploy:
     runs-on: ubuntu-latest
