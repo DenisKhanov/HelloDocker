@@ -1,7 +1,7 @@
 name: My-Test
 env:
   APPLICATION_NAME: "MyFlask"
-  PACKAGE_NAME: "flask-deploy-ver-${{github.sha}}
+  PACKAGE_NAME: "flask-deploy-ver-${{github.sha}}"
 
 on:
   push:
@@ -13,23 +13,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Print Hello Message
-      run: echo "Hello World Testing Job"
-      
-    - name: Execute few commands
-      run: |
-        echo "Hello Message 1"
-        echo "Hello Message 2"
-        echo "Application name: ${{env.APPLICATION_NAME}}"
-        
+      - name: Print Hello Message
+        run: echo "Hello World Testing Job"
+
+      - name: Execute few commands
+        run: |
+          echo "Hello Message 1"
+          echo "Hello Message 2"
+          echo "Application name: ${{env.APPLICATION_NAME}}"
+
+      - name: List current folder
+        run: ls -la
+
+      - name: Git clone my repo
+        uses: actions/checkout@v1
+
+      - name: List current folder
+        run: ls -la
+
+
   my-deploy:
     runs-on: ubuntu-latest
-    needs: [my-testing]
+    needs: [ my-testing ]
 
     steps:
-    - name: Print Hello Message
-      run: echo "Hello World Deploy Job"
-      
-    - name: Printing Deployment packege
-      run: |
-        echo "Deploy packege name is ${{env.PACKAGE_NAME}}"
+      - name: Print Hello Message
+        run: echo "Hello World Deploy Job"
+
+      - name: Printing Deployment package
+        run: |
+          echo "Deploy package name is ${{env.PACKAGE_NAME}}"
