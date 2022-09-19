@@ -7,14 +7,14 @@ on:
 
 jobs:
   my-testing:
-    runs-on: ubunty-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Print Hello Message
       run: echo "Hello World Testing Job"
         
   my-deploy:
-    runs-on: ubunty-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Print Hello Message
